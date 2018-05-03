@@ -1006,7 +1006,7 @@ func (e *Endpoint) GetPolicyModel() *models.EndpointPolicyStatus {
 		AllowedIngressIdentities: realizedIngressIdentities,
 		AllowedEgressIdentities:  realizedEgressIdentities,
 		CidrPolicy:               e.L3Policy.GetModel(),
-		L4:                       e.Consumable.L4Policy.GetModel(),
+		L4:                       e.RealizedL4Policy.GetModel(),
 		PolicyEnabled:            policyEnabled,
 	}
 
@@ -1017,7 +1017,7 @@ func (e *Endpoint) GetPolicyModel() *models.EndpointPolicyStatus {
 		AllowedIngressIdentities: desiredIngressIdentities,
 		AllowedEgressIdentities:  desiredEgressIdentities,
 		CidrPolicy:               e.L3Policy.GetModel(),
-		L4:                       e.Consumable.L4Policy.GetModel(),
+		L4:                       e.DesiredL4Policy.GetModel(),
 		PolicyEnabled:            policyEnabled,
 	}
 	// FIXME GH-3280 Once we start returning revisions Realized should be the
